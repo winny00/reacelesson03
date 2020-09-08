@@ -1,0 +1,36 @@
+目标
+    1.掌握第三方组件正确使用方式
+    2.能设计并实现自己的组件
+    3.了解常见组件优化技术
+要点
+    1.使用antd
+    2.设计并实现表单控件
+    3.实现弹窗类组件
+    4.实现树组件
+    5.使用PureComponent、memo
+
+配置按需加载
+    安装react-app-rewired 取代react-scripts,可以扩展webpack的配置，类似vue.config.js
+    由于新react-app-rewired@2.x版本的关系，你还需要安装customize-cra 
+    babel-plugin-import 是一个用于按需加载组件代码和样式的babel插件
+
+表单组件设计思路
+--表单组件要求实现数据收集、校验、提交等特性，可通过高阶组件扩展
+--高阶组件给表单组件传递一个Input组件包装函数接管其输入事件并统一管理表单数据
+--高阶组件给表单组件传递一个校验函数使其具备数据校验功能
+
+
+弹窗类组件设计与实现
+弹窗组件的要求弹窗在A处声明，却在B处展示。
+
+常见组件优化技术
+核心：只渲染需要被渲染的组件。
+定制组件的shouldComponentUpdate勾子
+
+PureComponent
+定制shouldComponentUpdate后的Component
+缺点是必须要用class形式，而且是浅比较
+
+React.memo
+它是React v16.6引进为的新属性，是一个高价组件。它的作用和React.PureComponent类似
+是用来控制函数组件的得新渲染。它其实就是函数组件的React.PureComponent的实现
